@@ -1,0 +1,81 @@
+﻿@model ImbizoFoundation.Models.Lesson
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Lesson</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lessonName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lessonName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.duration)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.duration)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dateCreated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dateCreated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lessonShortDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lessonShortDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lessonSupportingText)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lessonSupportingText)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pdfLink)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pdfLink)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.mp3Link)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.mp3Link)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.videoLink)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.videoLink)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.courseID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.courseID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.lessonImageLink)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.lessonImageLink)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.lessonID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>

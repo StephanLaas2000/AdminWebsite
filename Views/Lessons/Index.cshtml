@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ImbizoFoundation.Models.Lesson>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead style="background-color:lightgreen">
+        <tr>
+            <th>
+                Lesson Name
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Date Created
+            </th>
+            <th>
+                Lesson Description
+            </th>
+            <th>
+                Supporting Text
+            </th>
+            <th >
+                Video Link
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.lessonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lessonShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lessonSupportingText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.videoLink)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.lessonID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.lessonID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.lessonID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
+

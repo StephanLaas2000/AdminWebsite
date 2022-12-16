@@ -1,0 +1,118 @@
+﻿@model ImbizoFoundation.Models.Course
+
+@{
+    ViewData["Title"] = "Create";
+}
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Home</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='~/home.css'>
+
+</head>
+
+
+  <nav class="navbar">
+    <img  src="https://cdn.discordapp.com/attachments/951415115431936000/1020080722435915786/Icon_1.png" width="8%" alt="Imbizo Foundation Logo">
+  </nav>
+<h1t class="home-title"><span>Create Course</span> </h1t>
+<hr />
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                   
+            <div class="inputGroup">
+    <input asp-for="courseName" type="text" required="" autocomplete="off">
+    <label for="name">Course Name</label>
+</div>
+            <div class="form-group">
+                <select asp-for="recommendedCourseID" style="border-block-color:black; height: 50px; border:solid; width: 280px" class ="form-select" asp-items="ViewBag.courseID" >
+                     <option value="" disabled hidden selected>Select A Recommended Course</option>
+                </select>
+                <span asp-validation-for="recommendedCourseID" class="text-danger"></span>
+            </div>
+            <br />
+              <div class="form-group">
+                  <label>Select An Image For The Course</label>
+                <input style="border-block-color:black; height: 43px; border:solid;width: 280px" asp-for="Image" class="form-control" type="file" id="Image" name="Image" />
+                <span asp-validation-for="Image" class="text-danger"></span>    
+            </div>
+            <div class="inputGroup">
+    <input asp-for="courseAuthor" type="text" required="" autocomplete="off">
+    <label for="name">Course Authors</label>
+</div>
+
+            <div class="form-group">
+                <label class="control-label">Select Course Language</label>
+                <select asp-for="listCourseIDAltLan" class="form-select"  style="border-block-color:black; height: 50px; border:solid; width: 280px" asp-items="ViewBag.languagesList" ></select>
+                <span asp-validation-for="listCourseIDAltLan" class="text-danger"></span>
+            </div>
+            <br/>
+           
+            <table style="font-size: 20px; align-content:center; padding: 10px">
+                <thead>
+                    Select A Related Course
+                </thead>
+                <thead>
+                   Or
+                </thead>
+                <thead>
+                    Select If there is no related Course
+                </thead>
+                <tr>
+                    <td>
+                          <select asp-for="courseRelated" style="border-block-color:black; height: 50px; border:solid; width: 280px" id="selectedCourse" class ="form-select" asp-items="ViewBag.courseRelatedName" > 
+                    <option value="" disabled hidden selected>Related Course</option>
+                    </select>
+                    </td>
+                    <td>
+                        Or
+                    </td>
+                    <td>
+                         <select asp-for="noRelatedCourse" style="border-block-color:black; height: 50px; border:solid; width: 280px" id="selectedCourse" class ="form-select" asp-items="ViewBag.courseRelatedNot" >
+                    <option value="" disabled hidden selected>No Related Course</option>
+                </select>
+                    </td>
+                </tr>
+            </table>   
+            <br />
+            <br />
+              <button id="testButton" class="icon-btn add-btn">
+    <div class="add-icon"></div>
+    <div class="btn-txt">Create Course</div>
+</button>
+        </form>
+
+
+<br/>
+@if (ViewBag.Loader == 1)
+{
+    <div class="spinner">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+}
+<div>
+    <a asp-action="Index" style="color: black; ">View All Courses</a>
+</div>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
+
+@if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

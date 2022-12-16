@@ -1,0 +1,159 @@
+﻿@{
+
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='~/home.css'>
+    <style>
+        button {
+            --color: #ad560b;
+            font-family: inherit;
+            display: inline-block;
+            width: 8em;
+            height: 2.6em;
+            line-height: 2.5em;
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--color);
+            transition: color .5s;
+            z-index: 1;
+            font-size: 17px;
+            border-radius: 6px;
+            font-weight: 500;
+            color: var(--color);
+        }
+
+            button:before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                background: var(--color);
+                height: 150px;
+                width: 200px;
+                border-radius: 50%;
+            }
+
+            button:hover {
+                color: #fff;
+            }
+
+            button:before {
+                top: 100%;
+                left: 100%;
+                transition: all .7s;
+            }
+
+            button:hover:before {
+                top: -30px;
+                left: -30px;
+            }
+
+            button:active:before {
+                background: #ad560b;
+                transition: background 0s;
+            }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <label style="font-size: 50px;float: left;position: absolute;left: 36%;top: 23px;">Imbizo</label>
+        <img src="https://cdn.discordapp.com/attachments/951415115431936000/1020080722435915786/Icon_1.png" width="8%" alt="Imbizo Foundation Logo">
+        <label style="font-size: 50px;float: left;position: absolute;left: 54%;top: 23px;">Foundation</label>
+
+
+    </nav>
+    <div class="searchbar">
+        <div class="group">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <g>
+                    <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                    </path>
+                </g>
+            </svg>
+            <input placeholder="Search" type="search" class="input">
+        </div>
+    </div>
+    <br>
+
+    <div>
+        <div class="btn-group" style="margin-left: 20%; max-width: 100%;">
+            <div class="buttons" onclick="location.href='@Url.Action("Create", "Courses")'">
+                <div>
+                    <img style="margin-left: 30%;" src="https://img.icons8.com/ios-filled/50/000000/open-book.png" />
+                    <br>
+                    <label>Create Course</label>
+                </div>
+            </div>
+
+            <div class="buttons" onclick="location.href='@Url.Action("Create", "Lessons")'">
+                <div>
+                    <img style="margin-left: 30%;" src="https://img.icons8.com/ios/50/000000/financial-dynamic-presentation.png" />
+                    <br>
+                    <label>Create Lesson</label>
+                </div>
+            </div>
+
+            <div class="buttons" onclick="location.href='@Url.Action("Index", "Admin")'">
+                <div>
+                    <img style="margin-left: 30%;" src="https://img.icons8.com/ios-filled/50/000000/admin-settings-male.png" />
+                    <br>
+                    <label>Create Admin</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="btn-group" style="margin-left: 20%;clear:left;   max-width: 100%;">
+            <div style="margin-top: 2%; width:100%;">
+                <div class="buttons" onclick="location.href='@Url.Action("Index", "Courses")'">
+                    <div>
+                        <img style="margin-left: 20%;" src="https://img.icons8.com/ios-glyphs/60/000000/courses.png" />
+                        <br>
+                        <label>View All Courses</label>
+                    </div>
+                </div>
+
+                <div class="buttons" onclick="location.href='@Url.Action("Index", "Lessons")'">
+                    <div>
+                        <img style="margin-left: 20%;" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-lesson-university-vitaliy-gorbachev-lineal-vitaly-gorbachev.png" />
+                        <br>
+                        <label>View All Lessons</label>
+                    </div>
+                </div>
+
+                <div class="buttons" onclick="location.href='@Url.Action("Index", "MarketPlace")'">
+                    <div>
+                        <img style="margin-left: 20%;" src="https://img.icons8.com/pastel-glyph/64/000000/market--v2.png" />
+                        <br>
+                        <label>View Market Place</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <img style="left: 0%; position: absolute; height:500px;
+    bottom: 0;" src="https://firebasestorage.googleapis.com/v0/b/xbcad7319-a18ef.appspot.com/o/website%20images%2Fpngwing.com%20(1).png?alt=media&token=56a7f873-6f48-406b-b2c8-8e2aa1260da3" alt="">
+    </div>
+
+    <div>
+        <button style="float:right;position:absolute;    bottom: 10px;
+    right: 10px;" onclick="location.href='@Url.Action("Index", "Home")'">
+            Sign Out
+        </button>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<ImbizoFoundation.Models.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Home</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='~/courses.css'>
+
+</head>
+
+  <nav class="navbar">
+
+    <img  src="https://cdn.discordapp.com/attachments/951415115431936000/1020080722435915786/Icon_1.png" width="8%" alt="Imbizo Foundation Logo">
+
+
+  </nav>
+  <h1>Courses List</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
+<table class="table">
+    <thead style="background-color:lightgreen">
+        <tr>
+            <th>
+                Course Name
+            </th>
+            <th>
+                Recommended Course ID
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Date Created
+            </th>
+            <th>
+                Related Lesson IDs
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.courseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recommendedCourseID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.courseAuthor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.listOfLessonID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.courseID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.courseID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.courseID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+@foreach (var item in Model)
+{
+    <br />
+    <br />
+     <div style="">
+        <div class="buttons" style="margin-top:10px; width: 80%; float:left;">
+            <div class="fill" style="height: 150px; ">
+                <img src="@Html.DisplayFor(modelItem => item.courseImageLink)" alt="">
+            </div>
+            <div>
+                <br>
+                <label>
+                    @Html.DisplayFor(modelItem => item.courseName)
+                </label>
+                <p>
+                   Author:  @Html.DisplayFor(modelItem => item.courseAuthor), <br>
+                   Recommended Course: @Html.DisplayFor(modelItem => item.recommendedCourseID), <br>
+                   Date Created :  @Html.DisplayFor(modelItem => item.dateCreated), <br>
+                   No. of lessons :  @if (item.listOfLessonID != null) {  @Html.DisplayFor(modelItem => item.listOfLessonID.Count)}
+                </p>
+            </div>
+
+        </div >
+       
+    </div>
+
+}

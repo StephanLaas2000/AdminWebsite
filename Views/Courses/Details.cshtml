@@ -1,0 +1,57 @@
+﻿@model ImbizoFoundation.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.courseName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.courseName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.recommendedCourseID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.recommendedCourseID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.courseImageLink)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.courseImageLink)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.courseAuthor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.courseAuthor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dateCreated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dateCreated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.listOfLessonID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.listOfLessonID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.courseID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>

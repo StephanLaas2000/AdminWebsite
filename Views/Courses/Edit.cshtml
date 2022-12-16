@@ -1,0 +1,60 @@
+﻿@model ImbizoFoundation.Models.Course
+@{
+   var course = ViewData["Course"] as Course;
+}
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Course</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="courseID"/>
+
+             <div class="inputGroup">
+    <input asp-for="courseName" type="text" required="" autocomplete="off">
+    <label for="name">Course Name</label>
+    </div>
+            <br/>
+             <div class="form-group">
+                 <label>Select A Recommended Course</label>
+                <select asp-for="recommendedCourseID" style="border-block-color:black; height: 50px; border:solid" class ="form-select" asp-items="ViewBag.courseID" >
+                     <option value="" disabled hidden selected>Select A Recommended Course</option>
+                </select>
+                
+            </div>
+            <br/>
+            <div class="form-group">
+                  <label>Select An Image For The Course</label>
+                <input style="border-block-color:black; height: 43px; border:solid" asp-for="Image" class="form-control" type="file" id="Image" name="Image" />
+                 
+            </div>
+            <br/>
+           <div class="inputGroup">
+    <input asp-for="courseAuthor" type="text" required="" autocomplete="off">
+    <label for="name">Course Authors</label>
+    </div>
+    <br/>
+      <button id="testButton" class="icon-btn add-btn">
+    <div class="add-icon"></div>
+    <div class="btn-txt">Update Course</div>
+</button>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index">View All Course</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>

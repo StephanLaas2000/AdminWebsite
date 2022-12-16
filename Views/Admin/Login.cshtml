@@ -1,0 +1,58 @@
+﻿@model ImbizoFoundation.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Login</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='~/Login.css'>
+
+</head>
+
+<body class="sab">  
+    <div>
+    <img style="z-index: 1;" class="homelogo"
+      src="https://firebasestorage.googleapis.com/v0/b/githubwork-a302a.appspot.com/o/Icon%20(1).png?alt=media&token=de5f7f01-8eef-4a57-890f-3c3ea81211f5"
+       alt="Imbizo Foundation Logo">
+      <label  style="left: 179px;float: left;position: absolute;font-size: 40px;top: 28px;" >Imbizo Foundation</label>
+  </div>
+    <h1>Login</h1>
+    <h4>User</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Login" style="width:300px;">
+                <div class="form-group">
+                    <label class="control-label">Enter Firstname</label>
+                    <input asp-for="username" class="form-control" />
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Enter Password</label>
+                    <input type="password" asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:20px;">
+                    <input type="submit" value="Login" class="btn btn-primary" style="background-color:olivedrab;border:none"/>
+                </div>
+                <br />
+                <div class="form-group" style="margin-top:20px;">
+                    <input value="Register Page" class="btn btn-primary" style="background-color:olivedrab;border:none" onclick="location.href='@Url.Action("Create", "Admin")'" />
+                </div>
+                <p class="text-danger">@ViewBag.MessageAlert</p>
+                
+            </form>
+        </div>
+    </div>
+</body>
+<footer style="bottom:0px; position:absolute;float:left; left:0px; width:100%; background-color:darkolivegreen">
+    Milenuim Coders
+</footer>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

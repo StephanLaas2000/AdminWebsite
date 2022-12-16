@@ -1,0 +1,54 @@
+﻿@model ImbizoFoundation.Models.MarketPlace
+@{
+   var course = ViewData["MarketPlace"] as MarketPlace;
+}
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Market Place</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="companyName"/>
+                   
+            <div class="inputGroup">
+    <input asp-for="companyName" type="text" required="" autocomplete="off">
+    <label for="name">Company Name</label>
+</div>
+   <div class="inputGroup">
+    <input asp-for="companyEmailAddress" type="text" required="" autocomplete="off">
+    <label for="name">Company Email Address</label>
+</div>   
+            <div class="inputGroup">
+    <input asp-for="companyDescription" type="text" required="" autocomplete="off">
+    <label for="name">Company Description</label>
+</div>
+<br/>
+ <div class="inputGroup">
+    <input asp-for="companyLogoURL" type="text" required="" autocomplete="off">
+    <label for="name">Company Logo URL</label>
+</div>       
+           
+    <br/>
+      <button id="testButton" class="icon-btn add-btn">
+    <div class="add-icon"></div>
+    <div class="btn-txt">Update Market Place</div>
+</button>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index">View All Companies</a>
+</div>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

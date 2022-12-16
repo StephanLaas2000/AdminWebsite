@@ -1,0 +1,82 @@
+﻿@model ImbizoFoundation.Models.Lesson
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Lesson</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="lessonID" />
+            <div class="inputGroup">
+    <input asp-for="lessonName" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Name</label>
+</div>
+            <br/>
+              <div class="inputGroup">
+    <input asp-for="duration" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Duration</label>
+</div>
+            <br/>
+             <div class="inputGroup">
+    <input asp-for="lessonShortDescription" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Description</label>
+</div>
+            <br/>
+             <div class="inputGroup">
+    <input asp-for="lessonSupportingText" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Supporting Text</label>
+</div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="pdfLink" class="control-label"></label>
+                <input asp-for="pdfLink" class="form-control" />
+             
+            </div>
+            <br/>
+            <br/>
+            <div class="form-group">
+                <label asp-for="mp3Link" class="control-label"></label>
+                <input asp-for="mp3Link" class="form-control" />
+               
+            </div>
+            <br/>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+              
+            </div>
+            <br/>
+            <br/>
+             <div class="inputGroup">
+    <input asp-for="videoLink" type="text" required="" autocomplete="off">
+    <label for="name">Video Link</label>
+</div> 
+            <br/>
+           @* <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>*@
+             <button id="testButton" class="icon-btn add-btn">
+    <div class="add-icon"></div>
+    <div class="btn-txt">Update Lesson</div> 
+</button>
+<br />
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index">View All Lessons</a>
+</div>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,78 @@
+﻿@model ImbizoFoundation.Models.MarketPlace
+
+@{
+    ViewData["Title"] = "Create";
+}
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Home</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='~/home.css'>
+
+</head>
+
+
+  <nav class="navbar">
+    <img  src="https://cdn.discordapp.com/attachments/951415115431936000/1020080722435915786/Icon_1.png" width="8%" alt="Imbizo Foundation Logo">
+  </nav>
+<h1t class="home-title"><span>Create Course</span> </h1t>
+<hr />
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                   
+            <div class="inputGroup">
+    <input asp-for="companyName" type="text" required="" autocomplete="off">
+    <label for="name">Company Name</label>
+</div>
+   <div class="inputGroup">
+    <input asp-for="companyEmailAddress" type="text" required="" autocomplete="off">
+    <label for="name">Company Email Address</label>
+</div>   
+            <div class="inputGroup">
+    <input asp-for="companyDescription" type="text" required="" autocomplete="off">
+    <label for="name">Company Description</label>
+</div>
+<br/>
+ <div class="inputGroup">
+    <input asp-for="companyLogoURL" type="text" required="" autocomplete="off">
+    <label for="name">Company Logo URL</label>
+</div>       
+              <button id="testButton" class="icon-btn add-btn">
+    <div class="add-icon"></div>
+    <div class="btn-txt">Create Course</div>
+</button>
+        </form>
+
+
+<br/>
+@if (ViewBag.Loader == 1)
+{
+    <div class="spinner">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+}
+<div>
+    <a asp-action="Index" style="color: black; ">View All Companies</a>
+</div>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
+@if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

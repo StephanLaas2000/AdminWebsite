@@ -1,0 +1,108 @@
+﻿@model ImbizoFoundation.Models.Lesson
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<nav class="navbar">
+    <img  src="https://cdn.discordapp.com/attachments/951415115431936000/1020080722435915786/Icon_1.png" width="8%" alt="Imbizo Foundation Logo">
+  </nav>
+<h1t class="home-title"><span>Create Lesson</span> </h1t>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+            <div class="inputGroup">
+    <input asp-for="lessonName" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Name</label>
+</div>
+      
+             <div class="inputGroup">
+    <input asp-for="duration" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Duration</label>
+</div>
+
+              <div class="inputGroup">
+    <input asp-for="lessonShortDescription" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Description</label>
+</div>
+
+                 <div class="inputGroup">
+    <input asp-for="lessonSupportingText" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Supporting Text</label>
+</div>
+
+                 <div class="inputGroup">
+    <input asp-for="lessonLectures" type="text" required="" autocomplete="off">
+    <label for="name">Lesson Lectures</label>
+</div>
+
+           <div class="form-group">
+                <label>Submit PDF link below</label>
+                <input asp-for="pdfLink" style="border-block-color:black; height: 43px; border:solid" class="form-control" type="file" id="pdfLink" name="pdfLink" />
+                <span asp-validation-for="pdfLink" class="text-danger"></span>
+            </div>
+            <br />
+       
+            <div class="fileBorder">
+                <label>Submit MP3 link below</label>
+                <input asp-for="mp3Link" style="border-block-color:black; height: 43px; border:solid" height="10px" class="form-control" type="file" id="mp3Link" name="mp3Link" />
+                <span asp-validation-for="mp3Link" class="text-danger"></span>
+            </div>
+            <br/>
+             <div class="form-group">
+                 <label>Submit lesson image link below</label>
+                <input style="border-block-color:black; height: 43px; border:solid" asp-for="lessonImageLink" class="form-control" type="file" id="lessonImageLink" name="lessonImageLink" />
+                <span asp-validation-for="lessonImageLink" class="text-danger"></span>    
+            </div>
+
+               <div class="inputGroup">
+    <input asp-for="videoLink" type="text" required="" autocomplete="off">
+    <label for="name">Video Link</label>
+</div>
+
+            <div class="form-group">
+                <label class="control-label">Select Related Course</label>
+                <select asp-for="courseID" style="border-block-color:black; height: 50px; border:solid" class ="form-select" asp-items="ViewBag.courseID" ></select>
+                <span asp-validation-for="courseID" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="language" class="control-label"></label>
+                <select asp-for="language" style="border-block-color:black; height: 50px; border:solid" class ="form-select" asp-items="ViewBag.languagesList" ></select>
+                <span asp-validation-for="language" class="text-danger"></span>
+            </div>
+            <br/>
+    <button id="testButton" class="icon-btn add-btn">
+    <div class="add-icon"></div>
+    <div class="btn-txt">Create Lesson</div>
+</button>
+        </form>
+    </div>
+</div>
+<br />
+
+@if (ViewBag.Loader == 1)
+{
+    <div class="spinner">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+}
+
+
+<div>
+    <a asp-action="Index" style="color: black; ">View All Lessons</a>
+</div>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

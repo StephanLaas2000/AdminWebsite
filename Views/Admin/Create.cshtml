@@ -1,0 +1,50 @@
+﻿@model ImbizoFoundation.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .sab {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.404) 240px, rgba(189, 192, 140, 1) 710px), url(https://firebasestorage.googleapis.com/v0/b/githubwork-a302a.appspot.com/o/photo-1613244600331-ac72a1ee5256%201.png?alt=media&token=e02decfa-1f48-4d8c-a002-faa3389a48dc) no-repeat;
+    height: max-content;
+    width: max-content;
+    padding-left: 100px;
+    
+    background-size: 100%;
+}
+
+</style>
+<h1>Register</h1>
+
+<hr />
+<body class="sab" >
+    <div class="row" style="width:600px">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label class="control-label">Enter Firstname</label>
+                <input asp-for="username" class="form-control"/>
+                <span asp-validation-for="username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Enter Password</label>
+                <input type="password" asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create Admin" class="btn btn-primary" style="background-color:olivedrab;border:none" />
+            </div>
+            <br/>
+            <div class="form-group">
+                <input value="Login Page" class="btn btn-primary" style="background-color:olivedrab;border:none" onclick="location.href='@Url.Action("Login", "Admin")'"/>
+            </div>
+            <p class="text-danger">@ViewBag.MessageAlert</p>
+        </form>
+    </div>
+</div>
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,112 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=Poppins:wght@100;400;600&display=swap');
+
+body {
+    font-family: 'Carrois Gothic', sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    height: 100px;
+    top: 0%;
+    background-color: #E0E2BD;
+}
+
+    .navbar img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+    }
+
+group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 90%;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+
+    .input::placeholder {
+        color: #9e9ea7;
+    }
+
+    .input:focus, input:hover {
+        outline: none;
+        border-color: rgb(177 180 124 / 60%);
+        background-color: #fff;
+        box-shadow: 0 0 0 4px rgb(177 180 124 / 60%);
+    }
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+}
+
+.searchbar {
+    margin-top: 2%;
+    margin-left: 6%;
+}
+
+/* From uiverse.io by @adamgiebl */
+.buttons {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    width: 10%;
+    margin-left: 1%;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #B1B47C, -6px -6px 12px #ffffff;
+}
+
+    .buttons:hover {
+        border: 1px solid #B1B47C;
+    }
+
+.button:active {
+    box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
+
+.btn-group div {
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+.btn-group2 div {
+    cursor: pointer; /* Pointer/hand icon */
+
+
+    float: left; /* Float the buttons side by side */
+}
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden
+}
+
+    .fill img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%
+    }

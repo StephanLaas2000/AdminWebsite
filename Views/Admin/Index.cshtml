@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ImbizoFoundation.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+  <h1>Courses List</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead style="background-color:lightgreen">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>      
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.username">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+    <a style="color: black;"  onclick="location.href='@Url.Action("Main", "Home")'" >Main Dashboard</a>
+</div>
